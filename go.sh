@@ -1,0 +1,1 @@
+make ; gcc main.c libftasm.a ; ./a.out

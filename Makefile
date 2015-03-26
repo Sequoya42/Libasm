@@ -5,19 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2015/03/12 17:20:35 by rbaum             #+#    #+#              #
-#    Updated: 2015/03/25 07:21:29 by rbaum            ###   ########.fr        #
+#    Created: 2015/02/11 15:34:34 by rbaum             #+#    #+#              #
+#    Updated: 2015/03/26 23:09:15 by rbaum            ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
-
-.PHONY:			all, clean, fclean, re
+.PHONY:			all, libft, clean, fclean, re
 
 CC =			nasm
 
-CFLAG =			-f macho64
+CFLAG =			-f macho64 --prefix _
 
-NAME =			push_swap
+NAME =			libftasm.a
 
 SRC_PATH =		./src/
 
@@ -25,12 +24,11 @@ OBJ_PATH =		./obj/
 
 INC_PATH =		./inc/
 
-SRC_NAME =		ft_isdigit.s
+SRC_NAME =		ft_bzero.s	ft_isdigit.s\
 
+OBJ_NAME =		$(SRC_NAME:.s=.o)
 
-OBJ_NAME =		$(SRC_NAME:.c=.o)
-
-INC_NAME =		push_swap.h
+INC_NAME =		libftasm.h
 
 SRC =			$(addprefix $(SRC_PATH),$(SRC_NAME))
 
@@ -38,24 +36,22 @@ OBJ =			$(addprefix $(OBJ_PATH),$(OBJ_NAME))
 
 INC =			$(addprefix $(INC_PATH),$(INC_NAME))
 
-
 all:			$(NAME)
 
 $(NAME):		$(OBJ)
-				@$(CC)  -lft -o $(NAME) $(OBJ)
-				@echo "push swap created"
+				@ar rc $@ $^
+				@echo "libftasm created"
 
-$(OBJ_PATH)%.o:	$(SRC_PATH)%.c
+$(OBJ_PATH)%.o:	$(SRC_PATH)%.s
 				@mkdir -p $(OBJ_PATH)
-				@$(CC) $(CFLAG) -I$(INC_PATH) -I$(INCLIBFT_PATH) -o $@ -c $<
+				@$(CC) $(CFLAG) -I$(INC_PATH)  $< -o $@
 
 clean:
-				@make -C $(LIBFT_PATH) clean
 				@rm -f $(OBJ)
-
+				@echo "clean done"
 fclean:			
 				@rm -f $(OBJ)
-				@make -C $(LIBFT_PATH) fclean
 				@rm -f $(NAME)
+				@echo "fclean done"
 
 re: 			fclean all
