@@ -6,7 +6,7 @@
 #    By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/11 15:34:34 by rbaum             #+#    #+#              #
-#    Updated: 2015/03/26 23:09:15 by rbaum            ###   ########.fr        #
+#    Updated: 2015/03/27 02:52:44 by rbaum            ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -24,7 +24,7 @@ OBJ_PATH =		./obj/
 
 INC_PATH =		./inc/
 
-SRC_NAME =		ft_bzero.s	ft_isdigit.s\
+SRC_NAME =		ft_bzero.s	ft_isdigit.s	ft_isalpha.s\
 
 OBJ_NAME =		$(SRC_NAME:.s=.o)
 
