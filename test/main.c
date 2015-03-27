@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/26 22:36:47 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/27 16:28:20 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/27 17:53:38 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,6 @@ int		main(void)
 	ut_bzero();
 	ut_isalpha();
 	ut_isdigit();
+	ut_isalnum();
 	return (0);
 }

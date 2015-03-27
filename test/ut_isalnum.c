@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_if.c                                          :+:      :+:    :+:   */
+/*   ut_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/27 02:41:15 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/27 17:42:22 by rbaum            ###   ########.fr       */
+/*   Created: 2015/03/27 17:48:05 by rbaum             #+#    #+#             */
+/*   Updated: 2015/03/27 17:55:34 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test.h"
 
-void	test_if(int(*f)(int c), int(*m)(int c))
+void	ut_isalnum(void)
 {
-	int	i = 0;
-	while (i < 256)
-	{
-		if (m(i) != f(i))
-			FAILINT(i);
-		i++;
-	}
-	OK;
+	NAME("UT_ISALNUM");
+	test_if(isalnum, ft_isalnum);
 }
