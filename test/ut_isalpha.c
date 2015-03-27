@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/27 02:20:49 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/27 02:21:10 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/27 16:31:49 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	ut_isalpha(void)
 {
-
+	NAME("UT_ISALPHA");
+	test_if(isalpha, ft_isalpha);
 }
