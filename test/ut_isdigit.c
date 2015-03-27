@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ut_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/26 22:36:47 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/27 03:30:49 by rbaum            ###   ########.fr       */
+/*   Created: 2015/03/27 01:19:18 by rbaum             #+#    #+#             */
+/*   Updated: 2015/03/27 03:15:26 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test.h"
 
-int		main(void)
+void	ut_isdigit(void)
 {
-	ut_bzero();
-//	ut_isalpha();
-	ut_isdigit();
-	return (0);
+	NAME("UT_ISDIGIT");
+	test_if(isdigit, ft_isdigit);
 }

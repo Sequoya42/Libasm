@@ -6,16 +6,15 @@
 #    By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/27 00:36:34 by rbaum             #+#    #+#              #
-#    Updated: 2015/03/27 00:44:43 by rbaum            ###   ########.fr        #
+#    Updated: 2015/03/27 02:46:09 by rbaum            ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
-SRC=	 ut_bzero.c\
+SRC=	test_if.c	 ut_bzero.c		ut_isdigit.c\
 #		ut_cat.c\
 		ut_isalnum.c\
 		ut_isalpha.c\
 		ut_isascii.c\
-		ut_isdigit.c\
 		ut_isprint.c\
 		ut_memcpy.c\
 		ut_memset.c\

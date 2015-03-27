@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/27 00:38:51 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/27 00:45:16 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/27 03:36:02 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,30 @@
 
 void	ut_bzero(void)
 {
-	int  s1[1000];
-    int  s2[1000];
-    int i;
-
-    for (i = 0; i < 1000; i++)
-        s1[i] = s2[i] = rand() * 26 + 65;
-    bzero(s2, 1000);
-    ft_bzero(s1, 1000);
-    printf("\t\t"C_BOLD "" C_UNDER "Test BZERO" C_NONE "\n");
-    for (i = 0; i < 1000; i++)
-        if (s1[i] != s2[i])
-            break ;
-    if (i != 1000)
-        printf("[%s] Test 1  ->  index: %d/%d\n", C_RED "FAIL"C_NONE, i, 1000);
-    else
-        printf("[%s] Test 1  ->  Everything is OK!\n", C_CYAN "Good"C_NONE);
-    for (i = 0; i < 1000; i++)
-        s1[i] = s2[i] = rand() * 26 + 65;
-    bzero((void *)s2, 1000);
-    ft_bzero((void *)s1, 1000);
-    for (i = 0; i < 1000; i++)
-        if (s1[i] != s2[i])
-            break ;
-    if (i != 1000)
-        printf("[%s] Test 2  ->  index: %d/%d\n\n", C_RED"FAIL"C_NONE, i, 1000);
-    else
-        printf("[%s] Test 2  ->  Everything is OK!\n\n", C_CYAN"Good"C_NONE);
+	char test[] = "Voila un jolie test";
+	char test2[] = "Voila un jolie test";
+	void *pt;
+	NAME("UT_BZERO");
+	TEST("ft_bzero(str, 5)");
+	ft_bzero(test, 5);
+	if ((!(*test)) && (!(strcmp(test + 5, " un jolie test"))))
+		OK;
+	else
+		FAIL(test);
+	TEST("ft_bzero(str, 0)");
+	ft_bzero(test2, 0);
+	if (test2[0] == 'V')
+		OK;
+	else
+		FAIL(test2);
+	TEST("ft_bzero(NULL, 5)");
+	ft_bzero(NULL, 5);
+	OK;
+	pt = test;
+	ft_bzero(test, 7);
+	TEST("ft_bzero return ptr");
+	if (pt == test)
+		OK;
+	else
+		FAIL("Bad return ptr");
 }

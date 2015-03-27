@@ -6,18 +6,27 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/27 00:32:20 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/27 00:35:35 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/27 03:35:19 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TEST_H
 # define TEST_H
 
-# define C_BOLD "\033[1m"
-# define C_NONE "\033[0m"
-# define C_CYAN "\033[36m"
-# define C_RED "\033[31m"
-# define C_UNDER "\033[4m"
+# define BOLD "\033[1m"
+# define NONE "\033[0m"
+# define CYAN "\033[36;4;1m"
+# define BLUE "\033[39;4;1m"
+# define GREEN "\033[32m"
+# define RED "\033[31m"
+# define NC "\033[0m"
+
+
+#define FAIL(x) printf(RED "\t\tFAILED : "), printf("result: %s\n"NC, x)
+#define FAILINT(x) printf(RED"\t\tFAILED: "), printf("result: %d\n"NC, x);
+#define NAME(x) printf(CYAN"\n\t\t%s:\n"NC, x);
+#define TEST(x) printf(BLUE"\n\t\t%s:\n"NC, x);
+#define OK printf(GREEN"\t\t\tOK !\n"NC)
 
 #include "../inc/libftasm.h"
 #include <stdio.h>
@@ -28,15 +37,18 @@
 #include <ctype.h>
 
 void		ut_bzero(void);
-void		ut_strcat(void);
+
+
 void		ut_isalpha(void);
 void		ut_isdigit(void);
 void		ut_isalnum(void);
 void		ut_isascii(void);
 void		ut_isaprint(void);
-void		ut_put(void);
 void		ut_toupper(void);
 void		ut_tolower(void);
+
+void		ut_put(void);
+void		ut_strcat(void);
 void		ut_strlen(void);
 void		ut_memset(void);
 void		ut_memcpy(void);
@@ -45,5 +57,6 @@ void		ut_strdup(void);
 void		ut_cat(void);
 void		ut_isprint(void);
 
+void		test_if(int(*f)(int c), int(*m)(int c));
 #endif
 
