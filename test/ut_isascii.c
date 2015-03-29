@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_if.c                                          :+:      :+:    :+:   */
+/*   ut_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/27 02:41:15 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/30 00:04:52 by rbaum            ###   ########.fr       */
+/*   Created: 2015/03/29 23:46:52 by rbaum             #+#    #+#             */
+/*   Updated: 2015/03/29 23:47:31 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test.h"
 
-void	test_if(int(*f)(int c), int(*m)(int c))
+void	ut_isascii(void)
 {
-	int	i = -10;
-	while (i < 512)
-	{
-		if (m(i) != f(i))
-			FAILINT(i);
-		i++;
-	}
-	OK;
+	NAME("UT_ISASCII");
+	test_if(isascii, ft_isascii);
 }
