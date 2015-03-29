@@ -1,38 +1,26 @@
 ;******************************************************************************;
 ;                                                                              ;
 ;                                                         :::      ::::::::    ;
-;    ft_isalpha.s                                       :+:      :+:    :+:    ;
+;    ft_isalnum.s                                       :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
 ;    By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
-;    Created: 2015/03/27 02:20:24 by rbaum             #+#    #+#              ;
-;    Updated: 2015/03/27 17:11:39 by rbaum            ###   ########.fr        ;
+;    Created: 2015/03/27 17:28:56 by rbaum             #+#    #+#              ;
+;    Updated: 2015/03/27 17:58:29 by rbaum            ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
 	section .text
-	global	ft_isalpha
+	global	ft_isalnum
 
-	ft_isalpha:
-
-		cmp	rdi, 'A'
-		jl false
-		cmp rdi, 'z'
-		jg false
-		cmp rdi, 'Z'
-		jg min
-		jmp true
-
-	min:
-	cmp rdi, 'a'
-	jl false
-	jmp true
-
-
-	true:
-	mov rax, 1
-	ret
+	extern ft_isalpha
+	extern ft_isdigit
 	
-	false:
-	mov rax, 0
+	ft_isalnum:
+	call	ft_isalpha
+	cmp		rax, 1
+	je		 exit
+	call	ft_isdigit
+
+	exit:	
 	ret

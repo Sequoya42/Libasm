@@ -1,38 +1,26 @@
 ;******************************************************************************;
 ;                                                                              ;
 ;                                                         :::      ::::::::    ;
-;    ft_isalpha.s                                       :+:      :+:    :+:    ;
+;    ft_isascii.s                                       :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
 ;    By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
-;    Created: 2015/03/27 02:20:24 by rbaum             #+#    #+#              ;
-;    Updated: 2015/03/27 17:11:39 by rbaum            ###   ########.fr        ;
+;    Created: 2015/03/29 23:45:21 by rbaum             #+#    #+#              ;
+;    Updated: 2015/03/30 00:05:19 by rbaum            ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
 	section .text
-	global	ft_isalpha
+			global ft_isascii
 
-	ft_isalpha:
+	ft_isascii:
+			mov rax, 1
+			cmp rdi, 0
+			jl	exit
+			cmp rdi, 127
+			jg exit
+			ret
 
-		cmp	rdi, 'A'
-		jl false
-		cmp rdi, 'z'
-		jg false
-		cmp rdi, 'Z'
-		jg min
-		jmp true
-
-	min:
-	cmp rdi, 'a'
-	jl false
-	jmp true
-
-
-	true:
-	mov rax, 1
-	ret
-	
-	false:
-	mov rax, 0
-	ret
+	exit:
+		mov rax, 0
+		ret

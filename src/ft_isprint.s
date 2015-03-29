@@ -1,38 +1,27 @@
 ;******************************************************************************;
 ;                                                                              ;
 ;                                                         :::      ::::::::    ;
-;    ft_isalpha.s                                       :+:      :+:    :+:    ;
+;    ft_isprint.s                                       :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
 ;    By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
-;    Created: 2015/03/27 02:20:24 by rbaum             #+#    #+#              ;
-;    Updated: 2015/03/27 17:11:39 by rbaum            ###   ########.fr        ;
+;    Created: 2015/03/30 00:05:37 by rbaum             #+#    #+#              ;
+;    Updated: 2015/03/30 00:11:09 by rbaum            ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
 	section .text
-	global	ft_isalpha
+			global ft_isprint
 
-	ft_isalpha:
+	ft_isprint:
+		mov rax, 1
+		cmp rdi, 32
+		jl exit
+		cmp rdi, 126
+		jg exit
+		ret
 
-		cmp	rdi, 'A'
-		jl false
-		cmp rdi, 'z'
-		jg false
-		cmp rdi, 'Z'
-		jg min
-		jmp true
+	exit:
+		mov rax, 0
+		ret
 
-	min:
-	cmp rdi, 'a'
-	jl false
-	jmp true
-
-
-	true:
-	mov rax, 1
-	ret
-	
-	false:
-	mov rax, 0
-	ret
