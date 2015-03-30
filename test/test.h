@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/27 00:32:20 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/30 00:14:55 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/30 23:33:56 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,10 @@ void		ut_isaprint(void);
 void		ut_toupper(void);
 void		ut_tolower(void);
 
-void		ut_put(void);
+void		ut_isupper(void);
+void		ut_islower(void);
+
+void		ut_putchar(void);
 void		ut_strcat(void);
 void		ut_strlen(void);
 void		ut_memset(void);
@@ -58,5 +61,6 @@ void		ut_cat(void);
 void		ut_isprint(void);
 
 void		test_if(int(*f)(int c), int(*m)(int c));
+void		test_string(int(*f)(char *s), int(*m)(char *s));
 #endif
 

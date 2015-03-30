@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ut_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/26 22:36:47 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/31 00:27:20 by rbaum            ###   ########.fr       */
+/*   Created: 2015/03/30 17:15:42 by rbaum             #+#    #+#             */
+/*   Updated: 2015/03/30 18:17:11 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test.h"
 
-int		main(void)
+void	ut_putchar(void)
 {
-	ut_bzero();
-	ut_isalpha();
-	ut_isdigit();
-	ut_isalnum();
-	ut_isascii();
-	ut_isprint();
-	ut_toupper();
-	ut_tolower();
-	ut_strlen();
-	ut_memset();
-	ut_memcpy();
-	ut_strdup();
-	ut_strcat();
-	printf("\033[34;4;1m" "\n\t\t------BONUS------\n" NONE);
-	ut_isupper();
-	ut_islower();
-	ut_putchar();
-		  
-	return (0);
+	NAME("UT_PUTCHAR");
+	printf(NONE "\t\t\n");
+
+	int i = 0;
+	char *str = "Putchar fonctionne correctement.\n";
+	ft_putchar('\t');
+	while (str[i])
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
 }

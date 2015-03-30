@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ut_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/26 22:36:47 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/31 00:27:20 by rbaum            ###   ########.fr       */
+/*   Created: 2015/03/30 23:12:07 by rbaum             #+#    #+#             */
+/*   Updated: 2015/03/30 23:43:18 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test.h"
 
-int		main(void)
+void	ut_strdup(void)
 {
-	ut_bzero();
-	ut_isalpha();
-	ut_isdigit();
-	ut_isalnum();
-	ut_isascii();
-	ut_isprint();
-	ut_toupper();
-	ut_tolower();
-	ut_strlen();
-	ut_memset();
-	ut_memcpy();
-	ut_strdup();
-	ut_strcat();
-	printf("\033[34;4;1m" "\n\t\t------BONUS------\n" NONE);
-	ut_isupper();
-	ut_islower();
-	ut_putchar();
-		  
-	return (0);
+	NAME("UT_STRDUP");
+
+	char s[] = "Unicorns have feelings too you know ! ..\n";
+	char *ss = "deuxieme chaine juste pour le fun";
+	char *s2;
+	char *s3;
+
+
+	s3 = strdup(s);
+	s2 = ft_strdup(s);
+	if (strcmp(s2, s3))
+		FAIL(s2);
+
+	s3 = ft_strdup(ss);
+	s2 = strdup(ss);
+	if (strcmp(s2, s3))
+		FAIL(s2);
+	OK;
 }
