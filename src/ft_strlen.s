@@ -1,44 +1,27 @@
 ;******************************************************************************;
 ;                                                                              ;
 ;                                                         :::      ::::::::    ;
-;    ft_strcat.s                                        :+:      :+:    :+:    ;
+;    ft_strlen.s                                        :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
 ;    By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
-;    Created: 2015/03/31 00:40:39 by rbaum             #+#    #+#              ;
-;    Updated: 2015/03/31 01:20:54 by rbaum            ###   ########.fr        ;
+;    Created: 2015/03/30 19:19:49 by rbaum             #+#    #+#              ;
+;    Updated: 2015/03/30 21:20:00 by rbaum            ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
-	
 	section .text
-	global	ft_strcat
-	extern	ft_strlen
-	extern	ft_memcpy
+	global ft_strlen
 
-	
-	ft_strcat:
-		push rdi
+	ft_strlen:
+		xor rcx, rcx				;all byte of rcx set to 0
 		mov rax, 0
 		cmp rdi, 0
 		je exit
-		cmp rsi, 0
-		je exit					;all of the above is security
-
-		call ft_strlen			;strlen(s1)
-		mov r12, rax			; lenght of s1 in r12
+		not rcx					; all byte of rcx set to 1
+		repne scasb
+		not rcx					
+		lea rax, [rcx - 1]
 		
-		mov rdi, rsi
-		call ft_strlen	
-		inc rax					;for '\0'
-
-		mov rdx, rax			;lenght of s2 in rdx
-		pop rdi					;put initial value of rdi in rdi
-		push rdi
-		add rdi, r12			;go to end of chain
-		call ft_memcpy
-
-
 	exit:
-	pop rax
 	ret
