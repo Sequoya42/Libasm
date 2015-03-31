@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/27 00:32:20 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/30 23:33:56 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/31 02:51:05 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 #define FAILINT(x) printf(RED"\t\tFAILED: "), printf("result: %d\n"NC, x);
 #define NAME(x) printf(CYAN"\n\t\t%s:\t"NC, x);
 #define TEST(x) printf(BLUE"\n\t\t%s:\t"NC, x);
-#define OK printf(GREEN"OK !\n"NC)
+#define OK puts(GREEN"OK !\n"NC)
 
 #include "../inc/libftasm.h"
 #include <stdio.h>
